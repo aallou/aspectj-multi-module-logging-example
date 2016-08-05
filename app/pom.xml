@@ -12,10 +12,6 @@
 
 	<artifactId>app</artifactId>
 
-	<properties>
-		<aspectj.version>1.8.4</aspectj.version>
-	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
@@ -29,46 +25,14 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>aspectj-maven-plugin</artifactId>
-				<version>1.7</version>
+				
 				<configuration>
-					<complianceLevel>${java.version}</complianceLevel>
-					<source>${maven.compiler.source}</source>
-					<target>${maven.compiler.target}</target>
-
-					<showWeaveInfo>true</showWeaveInfo>
-
-					<weaveDependencies>
-						<weaveDependency>
+					<aspectLibraries>
+						<aspectLibrary>
 							<groupId>${project.groupId}</groupId>
 							<artifactId>logging</artifactId>
-						</weaveDependency>
-					</weaveDependencies>
-
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>compile</goal>
-							<goal>test-compile</goal>
-						</goals>
-					</execution>
-				</executions>
-				<dependencies>
-					<dependency>
-						<groupId>org.aspectj</groupId>
-						<artifactId>aspectjtools</artifactId>
-						<version>${aspectj.version}</version>
-					</dependency>
-				</dependencies>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.2</version>
-				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
+						</aspectLibrary>
+					</aspectLibraries>
 				</configuration>
 			</plugin>
 

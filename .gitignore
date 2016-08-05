@@ -6,3 +6,10 @@
 
 target/
 */target/
+
+*.project
+
+*.classpath
+
+.settings/
+*/.settings/
